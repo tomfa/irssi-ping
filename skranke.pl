@@ -1,8 +1,9 @@
 # Pinger
 #
+#
 # What is this?
 #
-# Install this script on a machine, and it will notify you using the command
+# Install this script to your irssi, and it will notify you using the command
 # say
 # once someone writes a given keyword.
 # 
@@ -11,7 +12,8 @@
 #
 # Anyone in the same channel as the one who runs this script may
 # write "skranke: something" without quotes. The machine running
-# this script will then run "say something" in the terminal.
+# this script will then run "say" in the terminal. The script ignores
+# "something".
 #
 # Write "skranke version" without quotes to tell what version it is.
 #
@@ -22,16 +24,15 @@ use strict;
 use vars qw($VERSION %IRSSI $KEYWORD);
 
 use Irssi qw(command_bind signal_add);
-use IO::File;
 $VERSION = '0.1';
 $KEYWORD = 'skranke';
 
 %IRSSI = (
     authors     => 'Tomas Fagerbekk',
     contact     => 'tomas@webutvikling.org',
-    name        => 'Pinger',
-    description => 'Get your PC to tell you something happened',
-    license     => 'GPL',
+    name        => 'Ping',
+    description => 'Get your irssi to tell you when someone wants hold of you',
+    license     => 'MIT',
 );
 
 sub own_question {
@@ -47,14 +48,14 @@ sub public_question {
 sub question($server, $msg, $nick, $target) {
     my ($server, $msg, $nick, $target) = @_;
     $_ = $msg;
-    if (!/^skranke/i) { return 0; }
+    if (!/$KEYWORD/i) { return 0; }
 
-    if (/^skranke:/i) {
-        my $answer = "I pinged skranke";
+    if (/^$KEYWORD:/i) {
+        my $answer = "I pinged ".$KEYWORD;
         $server->command('msg '.$target.' '.$nick.': '.$answer);
         system("say I R C");
         return 0;
-    } elsif (/^skranke version$/i){
+    } elsif (/^$KEYWORD version$/i){
         $server->command('msg '.$target.' My version is: '.$VERSION);
         return 0;
     } 
