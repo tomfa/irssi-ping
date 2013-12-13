@@ -3,7 +3,7 @@
 # What is this?
 #
 # Install this script on a machine, and it will notify you using the command
-# say
+# beep
 # once someone writes a given keyword.
 # 
 #
@@ -11,7 +11,7 @@
 #
 # Anyone in the same channel as the one who runs this script may
 # write "skranke: something" without quotes. The machine running
-# this script will then run "say something" in the terminal.
+# this script will then run "beep" in the terminal.
 #
 # Write "skranke version" without quotes to tell what version it is.
 #
@@ -50,10 +50,9 @@ sub question($server, $msg, $nick, $target) {
     if (!/^skranke/i) { return 0; }
 
     if (/^skranke:/i) {
-        my $ia = int(rand(16));
         my $answer = "I pinged skranke";
         $server->command('msg '.$target.' '.$nick.': '.$answer);
-        system("say something");
+        system("beep");
         return 0;
     } elsif (/^skranke version$/i){
         $server->command('msg '.$target.' My version is: '.$VERSION);
