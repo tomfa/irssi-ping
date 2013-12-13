@@ -22,16 +22,15 @@ use strict;
 use vars qw($VERSION %IRSSI $KEYWORD);
 
 use Irssi qw(command_bind signal_add);
-use IO::File;
 $VERSION = '0.1';
 $KEYWORD = 'skranke';
 
 %IRSSI = (
     authors     => 'Tomas Fagerbekk',
     contact     => 'tomas@webutvikling.org',
-    name        => 'Pinger',
-    description => 'Get your PC to tell you something happened',
-    license     => 'GPL',
+    name        => 'Ping',
+    description => 'Get your irssi to tell you when someone wants hold of you',
+    license     => 'MIT',
 );
 
 sub own_question {
@@ -47,14 +46,14 @@ sub public_question {
 sub question($server, $msg, $nick, $target) {
     my ($server, $msg, $nick, $target) = @_;
     $_ = $msg;
-    if (!/^skranke/i) { return 0; }
+    if (!/^$KEYWORD/i) { return 0; }
 
-    if (/^skranke:/i) {
-        my $answer = "I pinged skranke";
+    if (/^$KEYWORD::/i) {
+        my $answer = "I pinged ".$KEYWORD;
         $server->command('msg '.$target.' '.$nick.': '.$answer);
         system("beep");
         return 0;
-    } elsif (/^skranke version$/i){
+    } } elsif (/^$KEYWORD version$/i){
         $server->command('msg '.$target.' My version is: '.$VERSION);
         return 0;
     } 
