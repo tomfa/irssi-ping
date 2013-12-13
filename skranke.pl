@@ -50,10 +50,9 @@ sub question($server, $msg, $nick, $target) {
     if (!/^skranke/i) { return 0; }
 
     if (/^skranke:/i) {
-        my $ia = int(rand(16));
         my $answer = "I pinged skranke";
         $server->command('msg '.$target.' '.$nick.': '.$answer);
-        system("say something");
+        system("say I R C");
         return 0;
     } elsif (/^skranke version$/i){
         $server->command('msg '.$target.' My version is: '.$VERSION);
