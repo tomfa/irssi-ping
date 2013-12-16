@@ -53,7 +53,7 @@ sub question($server, $msg, $nick, $target) {
         $server->command('msg '.$target.' '.$nick.': '.$answer);
         system("beep");
         return 0;
-    } } elsif (/^$KEYWORD version$/i){
+    } elsif (/^$KEYWORD version$/i){
         $server->command('msg '.$target.' My version is: '.$VERSION);
         return 0;
     } 
