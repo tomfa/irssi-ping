@@ -4,8 +4,7 @@
 # What is this?
 #
 # Install this script to your irssi, and it will notify you using the command
-# beep
-# once someone writes a given keyword.
+# beep once someone writes a given keyword.
 #
 # 'beep' can trigger a computer sound by installing package beep
 # or be alias'ed to any command you want to be performed when that keyword
