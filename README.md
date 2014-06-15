@@ -12,6 +12,9 @@ This is a small script for irssi that will run the command 'beep' in the host sy
 
 ## Autorun irssi 
 
+### Autousing the script
+Please see [irssi's own pages](http://scripts.irssi.org/) on how to install the script.
+
 ### Irssi config nick
 
 You might want to always be available at a certain channel with a certain nick. In order to do this, we will set up so 
