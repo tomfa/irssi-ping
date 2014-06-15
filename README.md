@@ -12,7 +12,7 @@ This is a small script for irssi that will run the command 'beep' in the host sy
 
 ## Autorun irssi 
 
-### Autousing the script
+### Installing the script
 Please see [irssi's own pages](http://scripts.irssi.org/) on how to install the script.
 
 ### Irssi config nick
