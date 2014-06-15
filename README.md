@@ -1,9 +1,9 @@
-ping
+irssi-ping
 ====
 
-perl pinger for Orakel.
+A small irssi-pinger that will run a command locally once called upon in chat.
 
-This is a small script for irssi that will run the command 'beep' in the host system once anyone in a channel he has joined says a given KEYWORD:
+This is a small script for irssi that will run the command 'beep' in the host system once anyone in a channel he has joined says a given KEYWORD. Keyword is default "skranke". You can find and change this on line 30 in ping.pl
 
 ## Dependencies
 - beep (The package [beep](http://packages.ubuntu.com/search?keywords=beep). Alternatively, 'beep' can be aliased to whatever command you wish to be run.)
